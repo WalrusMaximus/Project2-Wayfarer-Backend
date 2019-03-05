@@ -63,5 +63,51 @@ module.exports = {
         console.log(err);
         res.status(500).json({ err });
       });
+  },
+  login: (req, res) => {
+    console.log("Login called");
+    db.User.find({ email: req.body.email })
+      .select("+password")
+      .exec()
+      .then(users => {
+        if (users.length < 1) {
+          return res.status(401).json({
+            message: "Email or password is incorrect"
+          });
+        }
+
+        bcrypt.compare(req.body.password, users[0].password, (err, match) => {
+          if (err) {
+            console.error(err);
+            return status(500).json({ err });
+          }
+
+          if (match) {
+            let user = {
+              email: users[0].email,
+              _id: users[0]._id
+            };
+            jwt.sign(
+              user,
+              "bWF0dGJyYW5kb25qb2VjaHJpc3RpbmE=",
+              {
+                expiresIn: "1h"
+              },
+              (err, signedJwt) => {
+                res.status(200).json({
+                  message: "Auth Successful",
+                  user,
+                  signedJwt
+                });
+              }
+            );
+          } else {
+            res.status(401).json({ message: "Email or password is incorrect" });
+          }
+        });
+      })
+      .catch(err => {
+        res.status(500).json({ err });
+      });
   }
 };
