@@ -89,9 +89,7 @@ db.Post.remove({}, (err, posts) => {
       date: postData.date,
       user: postData.user
     });
-    db.User.findOne({ name: postData.user })
-      .populate("user")
-      .exec((err, foundUser) => {
+    db.User.findOne({ name: postData.user }, (err, foundUser) => {
         if (err) return console.error(err);
         post.user = foundUser;
         post.save((err, savedPost) => {
