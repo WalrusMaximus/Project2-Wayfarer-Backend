@@ -43,13 +43,15 @@ let post_list = [
     content:
       "San Francisco is really cool and really also kinda not super cool",
     date: "July 8 2018",
-    user: "James"
+    user: "James",
+    city: "San Francisco"
   },
   {
     title: "I like the city",
     content: "What is this",
     date: "January 14 2019",
-    user: "John"
+    user: "John",
+    city: "Cologne"
   }
 ];
 
@@ -87,7 +89,8 @@ db.Post.remove({}, (err, posts) => {
       title: postData.title,
       content: postData.content,
       date: postData.date,
-      user: postData.user
+      user: postData.user,
+      city: postData.city
     });
     db.User.findOne({ name: postData.user }, (err, foundUser) => {
         if (err) return console.error(err);
@@ -95,6 +98,14 @@ db.Post.remove({}, (err, posts) => {
         post.save((err, savedPost) => {
           if (err) return console.error(err);
           console.log(`Saved ${savedPost.title} by ${foundUser.name}.`);
+        });
+      });
+      db.City.findOne({ name: postData.city }, (err, foundCity) => {
+        if (err) return console.error(err);
+        post.city = foundCity;
+        post.save((err, savedPost) => {
+          if (err) return console.error(err);
+          console.log(`Saved ${savedPost.title} by ${foundCity.name}.`);
         });
       });
   });
