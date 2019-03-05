@@ -9,6 +9,15 @@ module.exports = {
       res.json(foundUsers);
     });
   },
+  showOne: (req, res) => {
+    if (req.user.id) {
+      db.User.findById(req.userId, (err, foundUser) => {
+        res.json(foundUser);
+      });
+    } else {
+      res.json("No user id provided");
+    }
+  },
   signup: (req, res) => {
     console.log(req.body);
 
