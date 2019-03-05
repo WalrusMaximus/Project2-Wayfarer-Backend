@@ -93,20 +93,20 @@ db.Post.remove({}, (err, posts) => {
       city: postData.city
     });
     db.User.findOne({ name: postData.user }, (err, foundUser) => {
+      if (err) return console.error(err);
+      post.user = foundUser;
+      post.save((err, savedPost) => {
         if (err) return console.error(err);
-        post.user = foundUser;
-        post.save((err, savedPost) => {
-          if (err) return console.error(err);
-          console.log(`Saved ${savedPost.title} by ${foundUser.name}.`);
-        });
+        console.log(`Saved ${savedPost.title} by ${foundUser.name}.`);
       });
-      db.City.findOne({ name: postData.city }, (err, foundCity) => {
+    });
+    db.City.findOne({ name: postData.city }, (err, foundCity) => {
+      if (err) return console.error(err);
+      post.city = foundCity;
+      post.save((err, savedPost) => {
         if (err) return console.error(err);
-        post.city = foundCity;
-        post.save((err, savedPost) => {
-          if (err) return console.error(err);
-          console.log(`Saved ${savedPost.title} by ${foundCity.name}.`);
-        });
+        console.log(`Saved ${savedPost.title} by ${foundCity.name}.`);
       });
+    });
   });
 });

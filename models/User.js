@@ -4,13 +4,25 @@ Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   name: String,
-  email: String, // Validate as email
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+  },
   userName: String,
-  password: String,
+  password: { type: String, required: true, select: false },
   avatarUrl: String,
   homeCity: {
     type: Schema.Types.ObjectId,
     ref: "City"
+  }
+});
+
+UserSchema.set("toJSON", {
+  transform: function(doc, ret, opt) {
+    delete ret["password"];
+    return ret;
   }
 });
 
