@@ -43,7 +43,9 @@ module.exports = {
                   console.log("here is the result", newUser);
 
                   let user = {
+                    name: newUser.name,
                     email: newUser.email,
+                    userName: newUser.userName,
                     _id: newUser._id
                   };
 
@@ -85,17 +87,17 @@ module.exports = {
             message: "Email or password is incorrect"
           });
         }
-        console.log(users[0])
+        console.log(users[0]);
 
         bcrypt.compare(req.body.password, users[0].password, (err, match) => {
-          console.log('checking psw')
+          console.log("checking psw");
           if (err) {
             console.error(err);
             return status(500).json({ err });
           }
 
           if (match) {
-            console.log('matched')
+            console.log("matched");
             let user = {
               email: users[0].email,
               _id: users[0]._id
@@ -115,7 +117,7 @@ module.exports = {
               }
             );
           } else {
-            console.log('no match')
+            console.log("no match");
             res.status(401).json({ message: "Email or password is incorrect" });
           }
         });
