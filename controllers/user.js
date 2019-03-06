@@ -36,6 +36,8 @@ module.exports = {
             } else {
               db.User.create(
                 {
+                  name: req.body.name,
+                  userName: req.body.userName,
                   email: req.body.email,
                   password: hash
                 },
@@ -125,5 +127,11 @@ module.exports = {
       .catch(err => {
         res.status(500).json({ err });
       });
+  },
+  delete: (req, res) => {
+    let userId = req.body._id;
+    db.User.findOneAndDelete({ _id: userId }, (err, foundUser) => {
+      res.json(foundUser);
+    });
   }
 };
