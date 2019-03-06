@@ -138,50 +138,50 @@ let post_list = [
 
 // To seed USERS, comment out POSTS
 
-// db.User.deleteMany({}, (err, users) => {
-//   user_list.forEach(userData => {
-//     bcrypt.hash(userData.password, 10, (err, hash) => {
-//       let user = new db.User({
-//         name: userData.name,
-//         email: userData.email, // Validate as email
-//         userName: userData.userName,
-//         password: hash,
-//         avatarUrl: userData.avatarUrl
-//       });
-//       user.save((err, savedUser) => {
-//         if (err) console.error(err);
-//       });
-//     });
-//   });
-// });
-
-// db.City.deleteMany({}, (err, cities) => {
-//   places_list.forEach(cityData => {
-//     let city = new db.City({
-//       name: cityData.name,
-//       country: cityData.country,
-//       imageUrl: cityData.imageUrl
-//     });
-//     city.save((err, savedCity) => {
-//       if (err) console.error(err);
-//     });
-//   });
-// });
-
-db.Post.deleteMany({}, (err, posts) => {
-  post_list.forEach(postData => {
-    let post = new db.Post({
-      title: postData.title,
-      content: postData.content,
-      date: postData.date,
-      user: postData.user,
-      city: postData.city
-    });
-    post.save((err, savedPost) => {
-      if (err) console.log(`Saved this ${savedPost}`);
+db.User.deleteMany({}, (err, users) => {
+  user_list.forEach(userData => {
+    bcrypt.hash(userData.password, 10, (err, hash) => {
+      let user = new db.User({
+        name: userData.name,
+        email: userData.email, // Validate as email
+        userName: userData.userName,
+        password: hash,
+        avatarUrl: userData.avatarUrl
+      });
+      user.save((err, savedUser) => {
+        if (err) console.error(err);
+      });
     });
   });
 });
+
+db.City.deleteMany({}, (err, cities) => {
+  places_list.forEach(cityData => {
+    let city = new db.City({
+      name: cityData.name,
+      country: cityData.country,
+      imageUrl: cityData.imageUrl
+    });
+    city.save((err, savedCity) => {
+      if (err) console.error(err);
+    });
+  });
+});
+
+// db.Post.deleteMany({}, (err, posts) => {
+//   post_list.forEach(postData => {
+//     let post = new db.Post({
+//       title: postData.title,
+//       content: postData.content,
+//       date: postData.date,
+//       user: postData.user,
+//       city: postData.city
+//     });
+//     post.save((err, savedPost) => {
+//       if (err) console.log(`Saved this ${savedPost}`);
+//     });
+//   });
+// });
 
 //
 

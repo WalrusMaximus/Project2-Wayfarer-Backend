@@ -17,7 +17,7 @@ module.exports = {
       content: req.body.content,
       date: req.body.date,
       city: req.body.city,
-      userName: req.body.userName
+      userName: req.userId
     });
     db.Post.create(newPost, (err, newPostCreated) => {
       if (err) return console.log(err);
