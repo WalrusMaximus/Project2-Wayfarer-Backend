@@ -127,9 +127,16 @@ module.exports = {
       });
   },
   delete: (req, res) => {
+    console.log(req.body);
     let userId = req.body._id;
     db.User.findOneAndDelete({ _id: userId }, (err, foundUser) => {
+      if (err) {
+        throw err;
+      }
       res.json(foundUser);
     });
+  },
+  update: (req, res) => {
+    2;
   }
 };
