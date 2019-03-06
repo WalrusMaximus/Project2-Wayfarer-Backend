@@ -124,34 +124,34 @@ let post_list = [
     content:
       "San Francisco is really cool and really also kinda not super cool",
     date: "July 8 2018",
-    user: "James",
-    city: "San Francisco"
+    user: "5c803e71edcf5f0c07cee663",
+    city: "5c803e71edcf5f0c07cee661"
   },
   {
     title: "I like the city",
     content: "What is this",
     date: "January 14 2019",
-    user: "John",
-    city: "Cologne"
+    user: "5c803e71edcf5f0c07cee663",
+    city: "5c803e71edcf5f0c07cee661"
   }
 ];
 
-db.User.deleteMany({}, (err, users) => {
-  user_list.forEach(userData => {
-    bcrypt.hash(userData.password, 10, (err, hash) => {
-      let user = new db.User({
-        name: userData.name,
-        email: userData.email, // Validate as email
-        userName: userData.userName,
-        password: hash,
-        avatarUrl: userData.avatarUrl
-      });
-      user.save((err, savedUser) => {
-        if (err) console.error(err);
-      });
-    });
-  });
-});
+// db.User.deleteMany({}, (err, users) => {
+//   user_list.forEach(userData => {
+//     bcrypt.hash(userData.password, 10, (err, hash) => {
+//       let user = new db.User({
+//         name: userData.name,
+//         email: userData.email, // Validate as email
+//         userName: userData.userName,
+//         password: hash,
+//         avatarUrl: userData.avatarUrl
+//       });
+//       user.save((err, savedUser) => {
+//         if (err) console.error(err);
+//       });
+//     });
+//   });
+// });
 
 db.City.deleteMany({}, (err, cities) => {
   places_list.forEach(cityData => {
@@ -166,7 +166,7 @@ db.City.deleteMany({}, (err, cities) => {
   });
 });
 
-db.Post.remove({}, (err, posts) => {
+db.Post.deleteMany({}, (err, posts) => {
   post_list.forEach(postData => {
     let post = new db.Post({
       title: postData.title,
@@ -174,22 +174,40 @@ db.Post.remove({}, (err, posts) => {
       date: postData.date,
       user: postData.user,
       city: postData.city
+
     });
-    db.User.findOne({ name: postData.user }, (err, foundUser) => {
-      if (err) return console.error(err);
-      post.user = foundUser;
-      post.save((err, savedPost) => {
-        if (err) return console.error(err);
-        console.log(`Saved ${savedPost.title} by ${foundUser.name}.`);
-      });
-    });
-    db.City.findOne({ name: postData.city }, (err, foundCity) => {
-      if (err) return console.error(err);
-      post.city = foundCity;
-      post.save((err, savedPost) => {
-        if (err) return console.error(err);
-        console.log(`Saved ${savedPost.title} by ${foundCity.name}.`);
-      });
+    post.save((err, savedPost) => {
+      if (err) console.log(`Saved this ${savedPost}`);
     });
   });
 });
+
+
+// db.Post.deleteMany({}, (err, posts) => {
+//   post_list.forEach(postData => {
+//     let post = new db.Post({
+//       title: postData.title,
+//       content: postData.content,
+//       date: postData.date,
+//       user: postData.user,
+//       city: postData.city
+//     });
+//   
+//     // db.User.findOne({ name: postData.user }, (err, foundUser) => {
+//     //   if (err) return console.error(err);
+//     //   post.user = foundUser;
+//     //   post.save((err, savedPost) => {
+//     //     if (err) return console.error(err);
+//     //     console.log(`Saved ${savedPost.title} by ${foundUser.name}.`);
+//     //   });
+//     // });
+//     // db.City.findOne({ name: postData.city }, (err, foundCity) => {
+//     //   if (err) return console.error(err);
+//     //   post.city = foundCity;
+//     //   post.save((err, savedPost) => {
+//     //     if (err) return console.error(err);
+//     //     console.log(`Saved ${savedPost.title} by ${foundCity.name}.`);
+//     //   });
+//     // });
+//   });
+// });
