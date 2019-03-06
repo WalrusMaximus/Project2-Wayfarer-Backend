@@ -3,7 +3,7 @@ const userRoutes = require("./routes/user");
 const cityRoutes = require("./routes/city");
 const postRoutes = require("./routes/post");
 const bodyParser = require("body-parser");
-const CORS = require('cors');
+const CORS = require("cors");
 
 const app = express();
 
