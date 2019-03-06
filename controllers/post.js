@@ -29,19 +29,23 @@ module.exports = {
     let postId = req.body._id;
     db.Post.findOneAndDelete({ _id: postId }, (err, foundPost) => {
       if (err) return console.log(err);
-        console.log(foundPost);
+      console.log(foundPost);
       res.json(foundPost);
     });
   },
 
-  // update: (req,res ) => {
-  //   let postId = req.params.id;
-  //   console.log(reviewId);
-  //   db.Post.findOneAndUpdate({ _id: postId }, req.body, (err, updatedPost) => {
-  //       if (err) return console.log(err);
-  //       console.log(updatedPost);
-  //       res.json(updatedPost);
-  //   });
-  // }
-// });
+  updatePost: (req, res) => {
+    let postId = req.body._id;
+    console.log(postId);
+    db.Post.findOneAndUpdate(
+      { _id: postId },
+      req.body,
+      { new: true },
+      (err, updatedPost) => {
+        if (err) return console.log(err);
+        console.log(updatedPost);
+        res.json(updatedPost);
+      }
+    );
+  }
 };

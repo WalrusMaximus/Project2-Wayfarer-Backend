@@ -124,17 +124,19 @@ let post_list = [
     content:
       "San Francisco is really cool and really also kinda not super cool",
     date: "July 8 2018",
-    user: "5c803e71edcf5f0c07cee663",
-    city: "5c803e71edcf5f0c07cee661"
+    user: "5c804e0430008f702783d24f",
+    city: "5c804e0330008f702783d23d"
   },
   {
     title: "I like the city",
     content: "What is this",
     date: "January 14 2019",
-    user: "5c803e71edcf5f0c07cee663",
-    city: "5c803e71edcf5f0c07cee661"
+    user: "5c804e0430008f702783d250",
+    city: "5c804e0330008f702783d23e"
   }
 ];
+
+// To seed USERS, comment out POSTS
 
 // db.User.deleteMany({}, (err, users) => {
 //   user_list.forEach(userData => {
@@ -153,18 +155,18 @@ let post_list = [
 //   });
 // });
 
-db.City.deleteMany({}, (err, cities) => {
-  places_list.forEach(cityData => {
-    let city = new db.City({
-      name: cityData.name,
-      country: cityData.country,
-      imageUrl: cityData.imageUrl
-    });
-    city.save((err, savedCity) => {
-      if (err) console.error(err);
-    });
-  });
-});
+// db.City.deleteMany({}, (err, cities) => {
+//   places_list.forEach(cityData => {
+//     let city = new db.City({
+//       name: cityData.name,
+//       country: cityData.country,
+//       imageUrl: cityData.imageUrl
+//     });
+//     city.save((err, savedCity) => {
+//       if (err) console.error(err);
+//     });
+//   });
+// });
 
 db.Post.deleteMany({}, (err, posts) => {
   post_list.forEach(postData => {
@@ -174,7 +176,6 @@ db.Post.deleteMany({}, (err, posts) => {
       date: postData.date,
       user: postData.user,
       city: postData.city
-
     });
     post.save((err, savedPost) => {
       if (err) console.log(`Saved this ${savedPost}`);
@@ -182,6 +183,7 @@ db.Post.deleteMany({}, (err, posts) => {
   });
 });
 
+//
 
 // db.Post.deleteMany({}, (err, posts) => {
 //   post_list.forEach(postData => {
@@ -192,7 +194,7 @@ db.Post.deleteMany({}, (err, posts) => {
 //       user: postData.user,
 //       city: postData.city
 //     });
-//   
+//
 //     // db.User.findOne({ name: postData.user }, (err, foundUser) => {
 //     //   if (err) return console.error(err);
 //     //   post.user = foundUser;
