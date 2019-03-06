@@ -32,8 +32,88 @@ let places_list = [
     imageUrl: "#"
   },
   {
+    name: "London",
+    country: "United Kingdom",
+    imageUrl: "#"
+  },
+  {
     name: "Cologne",
     country: "Germany",
+    imageUrl: "#"
+  },
+  {
+    name: "Los Angeles",
+    country: "United States of America",
+    imageUrl: "#"
+  },
+  {
+    name: "Colorado Springs",
+    country: "United States of America",
+    imageUrl: "#"
+  },
+  {
+    name: "Philadelphia",
+    country: "United States of America",
+    imageUrl: "#"
+  },
+  {
+    name: "Guangzhou",
+    country: "China",
+    imageUrl: "#"
+  },
+  {
+    name: "Tokyo",
+    country: "Japan",
+    imageUrl: "#"
+  },
+  {
+    name: "New York City",
+    country: "United States of America",
+    imageUrl: "#"
+  },
+  {
+    name: "Istanbul",
+    country: "Turkey",
+    imageUrl: "#"
+  },
+  {
+    name: "Cairo",
+    country: "Egypt",
+    imageUrl: "#"
+  },
+  {
+    name: "San Diego",
+    country: "California",
+    imageUrl: "#"
+  },
+  {
+    name: "Venice",
+    country: "Italy",
+    imageUrl: "#"
+  },
+  {
+    name: "Mexico City",
+    country: "Mexico",
+    imageUrl: "#"
+  },
+  {
+    name: "Seoul",
+    country: "South Korea",
+    imageUrl: "#"
+  },
+  {
+    name: "Budapest",
+    country: "Hungary",
+    imageUrl: "#"
+  },
+  {
+    name: "Lyon",
+    country: "France",
+    imageUrl: "#"
+  },
+  {
+    name: "Cape Town",
+    country: "South Africa",
     imageUrl: "#"
   }
 ];
@@ -73,43 +153,43 @@ db.User.deleteMany({}, (err, users) => {
   });
 });
 
-// db.City.deleteMany({}, (err, cities) => {
-//   places_list.forEach(cityData => {
-//     let city = new db.City({
-//       name: cityData.name,
-//       country: cityData.country,
-//       imageUrl: cityData.imageUrl
-//     });
-//     city.save((err, savedCity) => {
-//       if (err) console.error(err);
-//     });
-//   });
-// });
+db.City.deleteMany({}, (err, cities) => {
+  places_list.forEach(cityData => {
+    let city = new db.City({
+      name: cityData.name,
+      country: cityData.country,
+      imageUrl: cityData.imageUrl
+    });
+    city.save((err, savedCity) => {
+      if (err) console.error(err);
+    });
+  });
+});
 
-// db.Post.remove({}, (err, posts) => {
-//   post_list.forEach(postData => {
-//     let post = new db.Post({
-//       title: postData.title,
-//       content: postData.content,
-//       date: postData.date,
-//       user: postData.user,
-//       city: postData.city
-//     });
-//     db.User.findOne({ name: postData.user }, (err, foundUser) => {
-//       if (err) return console.error(err);
-//       post.user = foundUser;
-//       post.save((err, savedPost) => {
-//         if (err) return console.error(err);
-//         console.log(`Saved ${savedPost.title} by ${foundUser.name}.`);
-//       });
-//     });
-//     db.City.findOne({ name: postData.city }, (err, foundCity) => {
-//       if (err) return console.error(err);
-//       post.city = foundCity;
-//       post.save((err, savedPost) => {
-//         if (err) return console.error(err);
-//         console.log(`Saved ${savedPost.title} by ${foundCity.name}.`);
-//       });
-//     });
-//   });
-// });
+db.Post.remove({}, (err, posts) => {
+  post_list.forEach(postData => {
+    let post = new db.Post({
+      title: postData.title,
+      content: postData.content,
+      date: postData.date,
+      user: postData.user,
+      city: postData.city
+    });
+    db.User.findOne({ name: postData.user }, (err, foundUser) => {
+      if (err) return console.error(err);
+      post.user = foundUser;
+      post.save((err, savedPost) => {
+        if (err) return console.error(err);
+        console.log(`Saved ${savedPost.title} by ${foundUser.name}.`);
+      });
+    });
+    db.City.findOne({ name: postData.city }, (err, foundCity) => {
+      if (err) return console.error(err);
+      post.city = foundCity;
+      post.save((err, savedPost) => {
+        if (err) return console.error(err);
+        console.log(`Saved ${savedPost.title} by ${foundCity.name}.`);
+      });
+    });
+  });
+});
