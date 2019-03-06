@@ -3,12 +3,14 @@ const userRoutes = require("./routes/user");
 const cityRoutes = require("./routes/city");
 const postRoutes = require("./routes/post");
 const bodyParser = require("body-parser");
+const CORS = require('cors');
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
+app.use(CORS());
 
 app.use("/users", userRoutes);
 app.use("/cities", cityRoutes);

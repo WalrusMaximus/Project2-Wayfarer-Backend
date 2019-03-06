@@ -75,6 +75,7 @@ module.exports = {
   },
   login: (req, res) => {
     console.log("Login called");
+    console.log(req.body);
     db.User.find({ email: req.body.email })
       .select("+password")
       .exec()
@@ -84,14 +85,17 @@ module.exports = {
             message: "Email or password is incorrect"
           });
         }
+        console.log(users[0])
 
         bcrypt.compare(req.body.password, users[0].password, (err, match) => {
+          console.log('checking psw')
           if (err) {
             console.error(err);
             return status(500).json({ err });
           }
 
           if (match) {
+            console.log('matched')
             let user = {
               email: users[0].email,
               _id: users[0]._id
@@ -111,6 +115,7 @@ module.exports = {
               }
             );
           } else {
+            console.log('no match')
             res.status(401).json({ message: "Email or password is incorrect" });
           }
         });
