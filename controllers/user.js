@@ -36,12 +36,12 @@ module.exports = {
             } else {
               db.User.create(
                 {
+                  name: req.body.name,
+                  userName: req.body.userName, //username was incorrect needed to be userName like model. Also changed in front end.
                   email: req.body.email,
                   password: hash
                 },
                 (err, newUser) => {
-                  console.log("here is the result", newUser);
-
                   let user = {
                     name: newUser.name,
                     email: newUser.email,
