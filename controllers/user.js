@@ -125,5 +125,11 @@ module.exports = {
       .catch(err => {
         res.status(500).json({ err });
       });
+  },
+  delete: (req, res) => {
+    let userId = req.body._id;
+    db.User.findOneAndDelete({ _id: userId }, (err, foundUser) => {
+      res.json(foundUser);
+    });
   }
 };
