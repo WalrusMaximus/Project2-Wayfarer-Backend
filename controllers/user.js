@@ -137,6 +137,16 @@ module.exports = {
     });
   },
   update: (req, res) => {
-    2;
+    let userId = req.body._id;
+    db.User.findOneAndUpdate(
+      { _id: userId },
+      req.body,
+      { new: true },
+      (err, updatedUser) => {
+        if (err) return console.log(err);
+        console.log(updatedUser);
+        res.json(updatedUser);
+      }
+    );
   }
 };
