@@ -1,4 +1,5 @@
 const db = require("../models");
+const bcrypt = require("bcrypt");
 
 let user_list = [
   {
@@ -57,56 +58,58 @@ let post_list = [
 
 db.User.deleteMany({}, (err, users) => {
   user_list.forEach(userData => {
-    let user = new db.User({
-      name: userData.name,
-      email: userData.email, // Validate as email
-      userName: userData.userName,
-      password: userData.password,
-      avatarUrl: userData.avatarUrl
-    });
-    user.save((err, savedUser) => {
-      if (err) console.error(err);
-    });
-  });
-});
-
-db.City.deleteMany({}, (err, cities) => {
-  places_list.forEach(cityData => {
-    let city = new db.City({
-      name: cityData.name,
-      country: cityData.country,
-      imageUrl: cityData.imageUrl
-    });
-    city.save((err, savedCity) => {
-      if (err) console.error(err);
-    });
-  });
-});
-
-db.Post.remove({}, (err, posts) => {
-  post_list.forEach(postData => {
-    let post = new db.Post({
-      title: postData.title,
-      content: postData.content,
-      date: postData.date,
-      user: postData.user,
-      city: postData.city
-    });
-    db.User.findOne({ name: postData.user }, (err, foundUser) => {
-      if (err) return console.error(err);
-      post.user = foundUser;
-      post.save((err, savedPost) => {
-        if (err) return console.error(err);
-        console.log(`Saved ${savedPost.title} by ${foundUser.name}.`);
+    bcrypt.hash(userData.password, 10, (err, hash) => {
+      let user = new db.User({
+        name: userData.name,
+        email: userData.email, // Validate as email
+        userName: userData.userName,
+        password: hash,
+        avatarUrl: userData.avatarUrl
       });
-    });
-    db.City.findOne({ name: postData.city }, (err, foundCity) => {
-      if (err) return console.error(err);
-      post.city = foundCity;
-      post.save((err, savedPost) => {
-        if (err) return console.error(err);
-        console.log(`Saved ${savedPost.title} by ${foundCity.name}.`);
+      user.save((err, savedUser) => {
+        if (err) console.error(err);
       });
     });
   });
 });
+
+// db.City.deleteMany({}, (err, cities) => {
+//   places_list.forEach(cityData => {
+//     let city = new db.City({
+//       name: cityData.name,
+//       country: cityData.country,
+//       imageUrl: cityData.imageUrl
+//     });
+//     city.save((err, savedCity) => {
+//       if (err) console.error(err);
+//     });
+//   });
+// });
+
+// db.Post.remove({}, (err, posts) => {
+//   post_list.forEach(postData => {
+//     let post = new db.Post({
+//       title: postData.title,
+//       content: postData.content,
+//       date: postData.date,
+//       user: postData.user,
+//       city: postData.city
+//     });
+//     db.User.findOne({ name: postData.user }, (err, foundUser) => {
+//       if (err) return console.error(err);
+//       post.user = foundUser;
+//       post.save((err, savedPost) => {
+//         if (err) return console.error(err);
+//         console.log(`Saved ${savedPost.title} by ${foundUser.name}.`);
+//       });
+//     });
+//     db.City.findOne({ name: postData.city }, (err, foundCity) => {
+//       if (err) return console.error(err);
+//       post.city = foundCity;
+//       post.save((err, savedPost) => {
+//         if (err) return console.error(err);
+//         console.log(`Saved ${savedPost.title} by ${foundCity.name}.`);
+//       });
+//     });
+//   });
+// });
