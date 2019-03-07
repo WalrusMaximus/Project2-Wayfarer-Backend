@@ -132,14 +132,12 @@ let post_list = [
     title: "I love the city",
     content:
       "San Francisco is really cool and really also kinda not super cool",
-    date: null,
     user: "5c804e0430008f702783d24f",
     city: "5c804e0330008f702783d23d"
   },
   {
     title: "I like the city",
     content: "What is this",
-    date: "January 14 2019",
     user: "5c804e0430008f702783d250",
     city: "5c804e0330008f702783d23e"
   }
