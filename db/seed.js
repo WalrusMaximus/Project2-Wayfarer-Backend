@@ -33,97 +33,116 @@ let places_list = [
   {
     name: "San Francisco",
     country: "United States of America",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1519227355453-8f982e425321?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2978&q=80"
   },
   {
     name: "London",
     country: "United Kingdom",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
   },
   {
     name: "Gibraltar",
     country: "Gibraltar",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1503152889424-9c280f38cb1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
   },
   {
     name: "Cologne",
     country: "Germany",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1504801019156-beabdea673be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2749&q=80"
   },
   {
     name: "Los Angeles",
     country: "United States of America",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1525876285538-4cc52d170c0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
   },
   {
     name: "Colorado Springs",
     country: "United States of America",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1517882737735-0da2d51cca47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
   },
   {
     name: "Philadelphia",
     country: "United States of America",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1537742840943-77832e2c5551?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
   },
   {
     name: "Guangzhou",
     country: "China",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1544594376-0a9a6ae2c997?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2837&q=80"
   },
   {
     name: "Tokyo",
     country: "Japan",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1549693578-d683be217e58?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2856&q=80"
   },
   {
     name: "New York City",
     country: "United States of America",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1445023086979-7244a12345a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2048&q=80"
   },
   {
     name: "Istanbul",
     country: "Turkey",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2549&q=80"
   },
   {
     name: "Cairo",
     country: "Egypt",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1522995924214-ac0040b4b63f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2818&q=80"
   },
   {
     name: "San Diego",
     country: "California",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1483042184814-97a463968400?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2852&q=80"
   },
   {
     name: "Venice",
     country: "Italy",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1502726488490-f99c74217a37?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
   },
   {
     name: "Mexico City",
     country: "Mexico",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1542835435-4fa357baa00b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2824&q=80"
   },
   {
     name: "Seoul",
     country: "South Korea",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1506809211073-d0785aaad75e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2656&q=80"
   },
   {
     name: "Budapest",
     country: "Hungary",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1520986840182-5b15f734c85c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2857&q=80"
   },
   {
     name: "Lyon",
     country: "France",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1516127716475-41e1f1e182d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2087&q=80"
   },
   {
     name: "Cape Town",
     country: "South Africa",
-    imageUrl: "#"
+    imageUrl:
+      "https://images.unsplash.com/photo-1475359201948-d44193401fae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
   }
 ];
 
