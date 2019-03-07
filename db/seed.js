@@ -181,33 +181,33 @@ let post_list = [
 //   });
 // });
 
-// db.City.deleteMany({}, (err, cities) => {
-//   places_list.forEach(cityData => {
-//     let city = new db.City({
-//       name: cityData.name,
-//       country: cityData.country,
-//       imageUrl: cityData.imageUrl
-//     });
-//     city.save((err, savedCity) => {
-//       if (err) console.error(err);
-//     });
-//   });
-// });
-
-db.Post.deleteMany({}, (err, posts) => {
-  post_list.forEach(postData => {
-    let post = new db.Post({
-      title: postData.title,
-      content: postData.content,
-      date: postData.date,
-      user: postData.user,
-      city: postData.city
+db.City.deleteMany({}, (err, cities) => {
+  places_list.forEach(cityData => {
+    let city = new db.City({
+      name: cityData.name,
+      country: cityData.country,
+      imageUrl: cityData.imageUrl
     });
-    post.save((err, savedPost) => {
-      if (err) console.log(`Saved this ${savedPost}`);
+    city.save((err, savedCity) => {
+      if (err) console.error(err);
     });
   });
 });
+
+// db.Post.deleteMany({}, (err, posts) => {
+//   post_list.forEach(postData => {
+//     let post = new db.Post({
+//       title: postData.title,
+//       content: postData.content,
+//       date: postData.date,
+//       user: postData.user,
+//       city: postData.city
+//     });
+//     post.save((err, savedPost) => {
+//       if (err) console.log(`Saved this ${savedPost}`);
+//     });
+//   });
+// });
 
 //
 
