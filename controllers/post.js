@@ -6,7 +6,7 @@ module.exports = {
       .populate("user")
       .populate("city")
       .exec((err, foundPosts) => {
-        console.log("HELLO User");
+        console.log("Now showing all posts");
         if (err) return console.error(err);
         res.json(foundPosts);
       });

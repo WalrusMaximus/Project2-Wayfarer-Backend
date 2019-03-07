@@ -5,7 +5,7 @@ Schema = mongoose.Schema;
 const PostSchema = new Schema({
   title: String,
   content: String,
-  date: String, // HOW DO WE GET THE ACTUAL DATE?
+  date: { type: Date, default: Date.now },
   city: {
     type: Schema.Types.ObjectId,
     ref: "City"
