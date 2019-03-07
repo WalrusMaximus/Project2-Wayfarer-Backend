@@ -37,7 +37,7 @@ module.exports = {
               db.User.create(
                 {
                   name: req.body.name,
-                  userName: req.body.userName, //username was incorrect needed to be userName like model. Also changed in front end.
+                  userName: req.body.userName,
                   email: req.body.email,
                   password: hash
                 },
