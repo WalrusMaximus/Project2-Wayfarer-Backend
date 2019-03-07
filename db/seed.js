@@ -37,6 +37,11 @@ let places_list = [
     imageUrl: "#"
   },
   {
+    name: "Gibraltar",
+    country: "Gibraltar",
+    imageUrl: "#"
+  },
+  {
     name: "Cologne",
     country: "Germany",
     imageUrl: "#"
