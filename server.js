@@ -16,4 +16,6 @@ app.use("/users", userRoutes);
 app.use("/cities", cityRoutes);
 app.use("/posts", postRoutes);
 
-app.listen(3001, () => console.log("Listening on 3001"));
+app.listen(process.env.PORT || 3001, () =>
+  console.log("Server is now running")
+);
