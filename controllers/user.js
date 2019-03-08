@@ -10,13 +10,15 @@ module.exports = {
     });
   },
   showOne: (req, res) => {
-    if (req.user.id) {
-      db.User.findById(req.userId, (err, foundUser) => {
-        res.json(foundUser);
-      });
-    } else {
-      res.json("No user id provided");
-    }
+    /* if (req.params.user) */
+
+    // {
+    db.User.find({ _id: req.params.id }, (err, foundUser) => {
+      res.json(foundUser);
+    });
+    // } else {
+    //   res.json("No user id provided");
+    // }
   },
   signup: (req, res) => {
     console.log(req.body);
