@@ -151,14 +151,14 @@ let post_list = [
     title: "I love the city",
     content:
       "San Francisco is really cool and really also kinda not super cool",
-    user: "5c804e0430008f702783d24f",
-    city: "5c804e0330008f702783d23d"
+    user: "5c816fecf875f8000ce1e108",
+    city: "5c819cce15c78e000cb26497"
   },
   {
     title: "I like the city",
     content: "What is this",
-    user: "5c804e0430008f702783d250",
-    city: "5c804e0330008f702783d23e"
+    user: "5c816fecf875f8000ce1e108",
+    city: "5c819cce15c78e000cb26497"
   }
 ];
 
@@ -181,33 +181,33 @@ let post_list = [
 //   });
 // });
 
-db.City.deleteMany({}, (err, cities) => {
-  places_list.forEach(cityData => {
-    let city = new db.City({
-      name: cityData.name,
-      country: cityData.country,
-      imageUrl: cityData.imageUrl
-    });
-    city.save((err, savedCity) => {
-      if (err) console.error(err);
-    });
-  });
-});
-
-// db.Post.deleteMany({}, (err, posts) => {
-//   post_list.forEach(postData => {
-//     let post = new db.Post({
-//       title: postData.title,
-//       content: postData.content,
-//       date: postData.date,
-//       user: postData.user,
-//       city: postData.city
+// db.City.deleteMany({}, (err, cities) => {
+//   places_list.forEach(cityData => {
+//     let city = new db.City({
+//       name: cityData.name,
+//       country: cityData.country,
+//       imageUrl: cityData.imageUrl
 //     });
-//     post.save((err, savedPost) => {
-//       if (err) console.log(`Saved this ${savedPost}`);
+//     city.save((err, savedCity) => {
+//       if (err) console.error(err);
 //     });
 //   });
 // });
+
+db.Post.deleteMany({}, (err, posts) => {
+  post_list.forEach(postData => {
+    let post = new db.Post({
+      title: postData.title,
+      content: postData.content,
+      date: postData.date,
+      user: postData.user,
+      city: postData.city
+    });
+    post.save((err, savedPost) => {
+      if (err) console.log(`Saved this ${savedPost}`);
+    });
+  });
+});
 
 //
 
