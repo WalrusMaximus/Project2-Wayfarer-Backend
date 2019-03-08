@@ -4,6 +4,7 @@ const router = express.Router();
 const controllers = require("../controllers");
 
 router.get("/", controllers.user.index);
+router.get("/profile/:id", controllers.user.showOne);
 router.post("/login", controllers.user.login);
 router.post("/signup", controllers.user.signup);
 router.delete("/delete", controllers.user.delete);
