@@ -12,21 +12,19 @@ module.exports = {
       });
   },
 
-
   onePost: (req, res) => {
-    console.log("inside functions")
+    console.log("inside functions");
     db.Post.find({ _id: req.params.id }, (err, foundPost) => {
-      console.log('no city posts boo')
+      console.log("no city posts boo");
       res.json(foundPost);
     });
-
   },
 
   createPost: (req, res) => {
     let newPost = new db.Post({
       title: req.body.title,
       content: req.body.content,
-      date: req.body.date,
+      // date: req.body.date,
       city: req.body.city,
       userName: req.userId
     });
