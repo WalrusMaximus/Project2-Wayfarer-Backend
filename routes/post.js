@@ -21,7 +21,6 @@ router.use((req, res, next) => {
 });
 
 router.get("/city/:id", controllers.post.onePost);
-// router.post("/createpost", controllers.post.createPost);
 router.delete("/deletepost", controllers.post.deletePost);
 router.put("/updatepost", controllers.post.updatePost);
 
