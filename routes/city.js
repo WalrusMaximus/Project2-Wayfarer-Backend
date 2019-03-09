@@ -4,4 +4,6 @@ const controllers = require("../controllers");
 
 router.get("/", controllers.city.index);
 
+
+
 module.exports = router;

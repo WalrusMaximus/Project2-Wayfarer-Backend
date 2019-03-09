@@ -11,6 +11,17 @@ module.exports = {
         res.json(foundPosts);
       });
   },
+
+
+  onePost: (req, res) => {
+    console.log("inside functions")
+    db.Post.find({ _id: req.params.id }, (err, foundPost) => {
+      console.log('no city posts boo')
+      res.json(foundPost);
+    });
+
+  },
+
   createPost: (req, res) => {
     let newPost = new db.Post({
       title: req.body.title,
