@@ -9,21 +9,27 @@ let user_list = [
     email: "john@gmail.com",
     userName: "john8",
     password: "password1",
-    avatarUrl: "#"
+    avatarUrl:
+      "https://www.https://s.yimg.com/ny/api/res/1.2/zIUvaYw8dasV4OjLEbQpiw--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/72a86180e5acd8715fcaa68c27749b6f.com/content/dam/animals/thumbs/rights-exempt/mammals/w/walrus_thumb.JPG",
+    homeCity: "5c819cce15c78e000cb26498"
   },
+
   {
     name: "James",
     email: "james@gmail.com",
     userName: "james8",
     password: "password1",
-    avatarUrl: "#"
+    avatarUrl: "https://s.hdnux.com/photos/75/70/65/16223552/3/rawImage.jpg",
+    homeCity: "5c819cce15c78e000cb26499"
   },
   {
     name: "Joseph",
     email: "joseph@gmail.com",
     userName: "joe8",
     password: "password1",
-    avatarUrl: "#"
+    avatarUrl:
+      "https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/w/walrus_thumb.JPG",
+    homeCity: "5c819cce15c78e000cb26497"
   }
 ];
 
@@ -162,7 +168,11 @@ let post_list = [
   }
 ];
 
-// To seed USERS, comment out POSTS
+// To seed USERS and CITIES, comment out POSTS
+// Seed data
+// Look up user id and city id and insert into POST List
+// Comment out cities and users, comment back in places
+// Seed again
 
 // db.User.deleteMany({}, (err, users) => {
 //   user_list.forEach(userData => {
