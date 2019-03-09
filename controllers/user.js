@@ -127,7 +127,7 @@ module.exports = {
       .catch(err => {
         res.status(500).json({ err });
       });
-    localStorage.pizza = req.body.email;
+    localStorage.setItem("userId", req.body.email);
   },
   delete: (req, res) => {
     console.log(req.body);
