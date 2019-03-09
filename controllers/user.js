@@ -11,7 +11,7 @@ module.exports = {
   },
   showOne: (req, res) => {
     /* if (req.params.user) */
-    console.log(req.params);
+
     // {
     db.User.find({ _id: req.params.id }, (err, foundUser) => {
       res.json(foundUser);
@@ -127,7 +127,6 @@ module.exports = {
       .catch(err => {
         res.status(500).json({ err });
       });
-    localStorage.setItem("userId", req.body.email);
   },
   delete: (req, res) => {
     console.log(req.body);
