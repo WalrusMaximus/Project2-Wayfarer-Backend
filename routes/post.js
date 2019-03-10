@@ -21,7 +21,7 @@ router.use((req, res, next) => {
 });
 
 router.get("/city/:id", controllers.post.onePost);
-router.delete("/deletepost/:id", controllers.post.deletePost);
-router.put("/updatepost/:id", controllers.post.updatePost);
+router.delete("/deletepost", controllers.post.deletePost);
+router.put("/updatepost", controllers.post.updatePost);
 
 module.exports = router;

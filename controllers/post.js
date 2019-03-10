@@ -24,7 +24,6 @@ module.exports = {
     let newPost = new db.Post({
       title: req.body.title,
       content: req.body.content,
-      // date: req.body.date,
       city: req.body.city,
       user: req.body.user
     });
@@ -35,7 +34,7 @@ module.exports = {
   },
 
   deletePost: (req, res) => {
-    let postId = req.params._id;
+    let postId = req.body._id;
     db.Post.findOneAndDelete({ _id: postId }, (err, foundPost) => {
       if (err) return console.log(err);
       console.log(foundPost);
