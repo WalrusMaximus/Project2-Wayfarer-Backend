@@ -10,13 +10,12 @@ module.exports = {
   },
 
   showOne: (req, res) => {
-    if (req.city.id) {
-      db.City.findById(req.cityId, (err, foundCity) => {
-        res.json(foundCity);
-      });
-    } else {
-      res.json("No city id provided");
-    }
-  },
-  
+    // if (req.city.id) {
+    db.City.find({ _id: req.params.id }, (err, foundCity) => {
+      res.json(foundCity);
+    });
+    // } else {
+    //   res.json("No city id provided");
+    // }
+  }
 };
