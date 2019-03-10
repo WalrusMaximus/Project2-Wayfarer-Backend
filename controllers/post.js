@@ -35,7 +35,7 @@ module.exports = {
   },
 
   deletePost: (req, res) => {
-    let postId = req.body._id;
+    let postId = req.params._id;
     db.Post.findOneAndDelete({ _id: postId }, (err, foundPost) => {
       if (err) return console.log(err);
       console.log(foundPost);
